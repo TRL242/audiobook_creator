@@ -4,6 +4,8 @@ import pyttsx3
 
 with open('book/Bridgewater Associates Ray Dalio - Principles.pdf', 'rb') as book:
 
+    full_text = ""
+
     reader = PyPDF2.PdfFileReader(book)
 
     audio_reader = pyttsx3.init()
@@ -12,8 +14,11 @@ with open('book/Bridgewater Associates Ray Dalio - Principles.pdf', 'rb') as boo
     for page in range(reader.numPages):
         next_page = reader.getPage(page)
         content = next_page.extractText()
-        #to listening from python
+        full_text += content
+        # # to listening from python
         # audio_reader.say(content)
-        audio_reader.save_to_file(content, "myaudiobook.mp3")
-        audio_reader.runAndWait()
+        # audio_reader.runAndWait()
+
+    audio_reader.save_to_file(full_text, "myaudiobook.mp3")
+    audio_reader.runAndWait()
 
