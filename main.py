@@ -2,7 +2,7 @@ import PyPDF2
 import pyttsx3
 
 
-with open('book/Bridgewater Associates Ray Dalio - Principles.pdf', 'rb') as book:
+with open('book/Republic By Plato.pdf', 'rb') as book:
 
     full_text = ""
 
@@ -19,6 +19,7 @@ with open('book/Bridgewater Associates Ray Dalio - Principles.pdf', 'rb') as boo
         # audio_reader.say(content)
         # audio_reader.runAndWait()
 
-    audio_reader.save_to_file(full_text, "myaudiobook.mp3")
+    # print(full_text)
+    audio_reader.save_to_file(full_text, "myaudiobook3.mp3")
     audio_reader.runAndWait()
 
